@@ -11,6 +11,46 @@
     <!--Supaya content fit 100% ke layar, maka menggunakan class containe -->
     <div class="container">
         <h2> Tabel Mahasiswa </h2>
+        <!-- tombol tambah -->
         <a href="/tambah-mahasiswa" class="btn btn-outline-primary"> +Tambah </a>
+        <!-- tabel mahasiswa dengan pola warna strip -->
+        <div class="row">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col"> No </th>
+                        <th scope="col"> NIM </th>
+                        <th scope="col"> Nama Lengkap </th>
+                        <th scope="col"> Prodi </th>
+                        <th scope="col"> Jurusan </th>
+                        <th scope="col"> Angkatan </th>
+                        <th scope="col"> Alamat </th>
+                    </tr>
+                </thead>
+            </table>
+            <!-- konten tabel -->
+            <tbody>
+                <!-- nomor dimulai dari 1 -->
+                @php
+                    $no = 1
+                @endphp
+
+                    @foreach ($data as $index => $row )
+                    <tr>
+                        <th scope="row"> {{$index + $data->firstitem()}}</th>
+                        <td> {{ $row->nim }} </td>
+                        <td> {{ $row->nama_MHS }} </td>
+                        <td> {{ $row->prodi }} </td>
+                        <td> {{ $row->jurusan }} </td>
+                        <td> {{ $row->angkatan }} </td>
+                        <td> {{ $row->alamat }} </td>
+                        <td>
+                            <a href="#" type="button" class="btn btn-succes"> Edit </a>
+                            <a href="#" type="button" class="btn btn-danger"> Hapus </a> 
+                        </td>                       
+                    @endforeach
+
+        </div>
+    </div>
 </body>
 </html>
